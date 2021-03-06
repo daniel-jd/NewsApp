@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsFeed: Codable {
+struct NewsFeed: Decodable {
     
     var status: String = "" // если точно знаешь, что не будет nil
     var totalResults: Int = 0

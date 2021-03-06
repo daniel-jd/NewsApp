@@ -18,8 +18,8 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadNews {
+        let manager = NetworkManager()
+        manager.loadNews {
             // Обновляем данные в таблице в ОСНОВНОМ потоке
             DispatchQueue.main.async {
                 self.tableView.reloadData()
