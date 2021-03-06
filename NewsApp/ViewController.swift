@@ -18,6 +18,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let manager = NetworkManager()
         manager.loadNews {
             // Обновляем данные в таблице в ОСНОВНОМ потоке
@@ -41,7 +42,7 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let article = newsFeed.articles?[indexPath.row]
         

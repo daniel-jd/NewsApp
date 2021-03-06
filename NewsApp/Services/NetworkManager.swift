@@ -40,14 +40,14 @@ class NetworkManager {
             }
         }
         
-        parseNews()
-        completionHandler?()
+        //parseNews()
+        //completionHandler?()
         
         // Make tha API call
         dataTask.resume()
     }
 
-    private func parseNews() {
+    func parseNews() {
         print("🐥 parseNews function called!!!")
     }
     
