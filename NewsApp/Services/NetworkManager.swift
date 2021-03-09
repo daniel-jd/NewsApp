@@ -9,20 +9,26 @@ import Foundation
 
 class NetworkManager {
     
+    private let baseURL = "https://newsapi.org/v2/"
+    private let searchFor = "top-headlines?"
+    private let API_KEY = "b2aa19d62b3e4c53b0df1e842c6c46a6"
+    private let country = "ua"
+    
     func loadNews(completionHandler: (()->Void)?) {
         
-        let urlString = "http://newsapi.org/v2/top-headlines?country=ua&apiKey=b2aa19d62b3e4c53b0df1e842c6c46a6"
+        var urlString: String {
+            let fullURL = baseURL + searchFor + "country=" + country + "&apiKey=" + API_KEY
+            print("✳️ " + fullURL)
+            return fullURL
+        }
         
         
-        let url = URL(string: urlString)
-        guard url != nil else {
+        guard let url = URL(string: urlString) else {
             print("🍄 url is nil")
             return
         }
         
-        let session = URLSession.shared
-        
-        let dataTask = session.dataTask(with: url!) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             // Check for errors
             if error == nil && data != nil {
@@ -37,6 +43,8 @@ class NetworkManager {
                 catch {
                     print("🍄 Error in JSON parsing: \(error.localizedDescription)")
                 }
+            } else {
+                print("⚠️ error: \(error!.localizedDescription)")
             }
         }
         
