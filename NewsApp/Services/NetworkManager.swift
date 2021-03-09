@@ -14,14 +14,12 @@ class NetworkManager {
     private let API_KEY = "b2aa19d62b3e4c53b0df1e842c6c46a6"
     private let country = "ua"
     
-    func loadNews(completionHandler: (()->Void)?) {
+    func loadNews(completion: @escaping (Result<[Article], Error>) -> Void) {
         
         var urlString: String {
             let fullURL = baseURL + searchFor + "country=" + country + "&apiKey=" + API_KEY
-            print("✳️ " + fullURL)
             return fullURL
         }
-        
         
         guard let url = URL(string: urlString) else {
             print("🍄 url is nil")
@@ -38,25 +36,20 @@ class NetworkManager {
                 
                 do {
                     let newsFeed = try decoder.decode(NewsFeed.self, from: data!)
-                    print(newsFeed)
+                    // TODO: Check for nil!!!
+                    completion(.success(newsFeed.articles!))
+                    print()
                 }
                 catch {
-                    print("🍄 Error in JSON parsing: \(error.localizedDescription)")
+                    print("⚠️ Error in JSON parsing: \(error.localizedDescription)")
                 }
             } else {
-                print("⚠️ error: \(error!.localizedDescription)")
+                print("⚠️ Error: \(error!.localizedDescription)")
             }
         }
-        
-        //parseNews()
-        //completionHandler?()
-        
         // Make tha API call
         dataTask.resume()
     }
 
-    func parseNews() {
-        print("🐥 parseNews function called!!!")
-    }
     
 }
