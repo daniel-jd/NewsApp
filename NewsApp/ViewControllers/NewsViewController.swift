@@ -15,6 +15,8 @@ class NewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 90
+
         // Instanse of NetworkManager to make networking calls, etc
         manager.loadNews { [weak self] result in
             switch result {
@@ -45,33 +47,24 @@ class NewsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ID.cellIdentifier, for: indexPath) as! NewsCell // Используем нашу кастомную ячейку!
 
         let article = articlesList[indexPath.row]
 
-        cell.textLabel?.text = article.title
-        cell.detailTextLabel?.text = article.description
+        cell.setCell(article: article)
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // go to details screen
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // go to DetailsVC screen
+        let storyboard = UIStoryboard(name: Storyboards.main, bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         
-        let urlToImage = "https://i.insider.com/5f1052132618b95c16267fa4?width=1200&format=jpeg"
-        //let urlToImage = articlesList[indexPath.row].urlToImage
+        // Передаем выбранную новость на DetailsViewController в переменную news
+        vc.news = articlesList[indexPath.row]
         
-        if let imageURL = URL(string: urlToImage) {
-            print("SUCCESS!")
-            vc.newsImageView?.load(url: imageURL)
-        } else {
-            print("Image URL is nil!!!⚠️")
-        }
-        print(articlesList[indexPath.row].title)
-        vc.newsTitleLabel?.text = articlesList[indexPath.row].title
         navigationController?.pushViewController(vc, animated: true)
     }
 

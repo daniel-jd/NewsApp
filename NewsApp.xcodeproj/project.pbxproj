@@ -18,6 +18,8 @@
 		A508FEA025EAD7C600F910FE /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508FE9F25EAD7C600F910FE /* NewsFeed.swift */; };
 		A508FEA325EAD96100F910FE /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508FEA225EAD96100F910FE /* Article.swift */; };
 		A534F83B25FCCA83005D5ADA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F83A25FCCA83005D5ADA /* DetailsViewController.swift */; };
+		A5A08E8225FD518100029DD4 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A08E8125FD518100029DD4 /* NewsCell.swift */; };
+		A5FD9C2425FD5AD400BF7447 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD9C2325FD5AD400BF7447 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		A508FE9F25EAD7C600F910FE /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		A508FEA225EAD96100F910FE /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		A534F83A25FCCA83005D5ADA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		A5A08E8125FD518100029DD4 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		A5FD9C2325FD5AD400BF7447 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				A50394B925FCD24700CD9839 /* Extentions.swift */,
+				A5FD9C2325FD5AD400BF7447 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -60,6 +65,7 @@
 			children = (
 				A508FE9F25EAD7C600F910FE /* NewsFeed.swift */,
 				A508FEA225EAD96100F910FE /* Article.swift */,
+				A5A08E8125FD518100029DD4 /* NewsCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,9 +195,11 @@
 				A508FEA025EAD7C600F910FE /* NewsFeed.swift in Sources */,
 				A508FE8D25EAD7AC00F910FE /* SceneDelegate.swift in Sources */,
 				A50394BA25FCD24700CD9839 /* Extentions.swift in Sources */,
+				A5FD9C2425FD5AD400BF7447 /* Constants.swift in Sources */,
 				A534F83B25FCCA83005D5ADA /* DetailsViewController.swift in Sources */,
 				A504CBDB25F41ACA009B257D /* NetworkManager.swift in Sources */,
 				A508FEA325EAD96100F910FE /* Article.swift in Sources */,
+				A5A08E8225FD518100029DD4 /* NewsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
