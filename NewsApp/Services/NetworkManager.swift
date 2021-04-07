@@ -12,7 +12,7 @@ class NetworkManager {
     private let baseURL = "https://newsapi.org/v2/"
     private let searchFor = "top-headlines?"
     private let feedURL = "http://newsapi.org/v2/everything?q=apple&from=2021-03-12&to=2021-03-12&sortBy=popularity"
-    private let API_KEY = "&apiKey=b2aa19d62b3e4c53b0df1e842c6c46a6"
+    private let API_KEY = "&apiKey="
     private let country = "country=ua"
     
     
