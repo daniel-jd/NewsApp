@@ -15,7 +15,7 @@ class NewsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 90
+        tableView.rowHeight = 88
 
         // Instanse of NetworkManager to make networking calls, etc
         manager.loadNews { [weak self] result in
@@ -27,7 +27,7 @@ class NewsViewController: UITableViewController {
                     self?.articlesList.append(item)
                 }
             }
-            //Refresh data in the tableView in the main thread
+            //Refresh data in the tableView on the main thread
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -35,24 +35,15 @@ class NewsViewController: UITableViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = false
-    }
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // количество ячеек, которое будем выводить равно количеству статей или 1
         return articlesList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ID.cellIdentifier, for: indexPath) as! NewsCell // Используем нашу кастомную ячейку!
-
         let article = articlesList[indexPath.row]
-
         cell.setCell(article: article)
-
         return cell
     }
     
@@ -64,11 +55,7 @@ class NewsViewController: UITableViewController {
         
         // Передаем выбранную новость на DetailsViewController в переменную news
         vc.news = articlesList[indexPath.row]
-        
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    
-    
-} // end class ViewController
-
+}
